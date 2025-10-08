@@ -1,0 +1,240 @@
+# Fine-tuning VGGT Camera Head on nuScenes
+# Use with: python launch.py --config-name finetune_nuscenes_camera
+
+defaults:
+  - default_dataset.yaml
+
+exp_name: finetune_nuscenes_camera
+img_size: 518
+num_workers: 4
+seed_value: 42
+accum_steps: 1 # No gradient accumulation for fine-tuning
+patch_size: 14
+val_epoch_freq: 1
+max_img_per_gpu: 6 # 6 cameras per sample
+
+limit_train_batches: 1000
+limit_val_batches: 200
+
+data:
+  train:
+    _target_: data.dynamic_dataloader.DynamicTorchDataset
+    num_workers: ${num_workers}
+    max_img_per_gpu: ${max_img_per_gpu}
+    common_config:
+      img_size: ${img_size}
+      patch_size: ${patch_size}
+      debug: False
+      repeat_batch: False
+      # Dynamic aspect ratios and image numbers
+      augs:
+        aspects: [1.0, 1.0] # Square images only
+        scales: [0.9, 1.1]
+      img_nums: [6, 6] # Always 6 cameras (fixed)
+      rescale: True
+      rescale_aug: True
+      landscape_check: False
+      training: True
+      get_nearby: False
+      load_depth: False
+      inside_random: False
+      allow_duplicate_img: False
+    dataset:
+      _target_: data.datasets.nuscenes.NuScenesDataset
+      split: train
+      NUSCENES_DIR: /fs/scratch/PAS2099/Jiacheng/data/nuscenes
+      version: v1.0-trainval
+      len_train: 50000
+
+  val:
+    _target_: data.dynamic_dataloader.DynamicTorchDataset
+    num_workers: ${num_workers}
+    max_img_per_gpu: ${max_img_per_gpu}
+    common_config:
+      img_size: ${img_size}
+      patch_size: ${patch_size}
+      debug: False
+      repeat_batch: False
+      augs:
+        aspects: [1.0, 1.0]
+        scales: [1.0, 1.0] # No augmentation for validation
+      img_nums: [6, 6]
+      rescale: True
+      rescale_aug: False
+      landscape_check: False
+      training: False
+      get_nearby: False
+      load_depth: False
+      inside_random: False
+      allow_duplicate_img: False
+    dataset:
+      _target_: data.datasets.nuscenes.NuScenesDataset
+      split: val
+      NUSCENES_DIR: /fs/scratch/PAS2099/Jiacheng/data/nuscenes
+      version: v1.0-trainval
+      len_train: 5000
+
+logging:
+  log_dir: logs/${exp_name}
+  log_visuals: False
+  log_freq: 10
+  log_level_primary: INFO
+  log_level_secondary: WARNING
+  all_ranks: False
+  tensorboard_writer:
+    _target_: train_utils.tb_writer.TensorBoardLogger
+    path: ${logging.log_dir}/tensorboard
+  scalar_keys_to_log:
+    train:
+      keys_to_log:
+        - loss_objective
+        - loss_camera
+        - loss_T
+        - loss_R
+        - loss_FL
+    val:
+      keys_to_log:
+        - loss_objective
+        - loss_camera
+        - loss_T
+        - loss_R
+        - loss_FL
+
+checkpoint:
+  save_dir: ${logging.log_dir}/ckpts
+  save_freq: 5
+  # Download pretrained weights from HuggingFace first, then set path here
+  # Or set to null to train from scratch / resume from previous fine-tuning
+  resume_checkpoint_path: null # Set to pretrained model path (e.g., path/to/VGGT-1B/pytorch_model.bin)
+  strict: False # Allow loading partial checkpoints (depth/point heads may be missing)
+
+loss:
+  _target_: loss.MultitaskLoss
+  camera:
+    weight: 1.0
+    loss_type: "l1"
+    gamma: 0.6
+    pose_encoding_type: "absT_quaR_FoV"
+    weight_trans: 1.0
+    weight_rot: 1.0
+    weight_focal: 0.5
+  depth: null # Not used for camera-only fine-tuning
+  point: null
+  track: null
+
+optim:
+  param_group_modifiers: False
+
+  optimizer:
+    _target_: torch.optim.AdamW
+    lr: 1.0e-4
+    weight_decay: 0.01
+
+  frozen_module_names:
+    # Freeze patch embedding
+    - "*patch_embed"
+    # Freeze all heads (camera, depth, point, track) so only last 2 AA blocks update
+    - "*camera_head*"
+    - "*depth_head*"
+    - "*point_head*"
+    - "*track_head*"
+
+    # Explicitly freeze frame_blocks 0-21 (leave 22-23 trainable)
+    - "*frame_blocks.0"
+    - "*frame_blocks.1"
+    - "*frame_blocks.2"
+    - "*frame_blocks.3"
+    - "*frame_blocks.4"
+    - "*frame_blocks.5"
+    - "*frame_blocks.6"
+    - "*frame_blocks.7"
+    - "*frame_blocks.8"
+    - "*frame_blocks.9"
+    - "*frame_blocks.10"
+    - "*frame_blocks.11"
+    - "*frame_blocks.12"
+    - "*frame_blocks.13"
+    - "*frame_blocks.14"
+    - "*frame_blocks.15"
+    - "*frame_blocks.16"
+    - "*frame_blocks.17"
+    - "*frame_blocks.18"
+    - "*frame_blocks.19"
+    - "*frame_blocks.20"
+    - "*frame_blocks.21"
+
+    # Explicitly freeze global_blocks 0-21 (leave 22-23 trainable)
+    - "*global_blocks.0"
+    - "*global_blocks.1"
+    - "*global_blocks.2"
+    - "*global_blocks.3"
+    - "*global_blocks.4"
+    - "*global_blocks.5"
+    - "*global_blocks.6"
+    - "*global_blocks.7"
+    - "*global_blocks.8"
+    - "*global_blocks.9"
+    - "*global_blocks.10"
+    - "*global_blocks.11"
+    - "*global_blocks.12"
+    - "*global_blocks.13"
+    - "*global_blocks.14"
+    - "*global_blocks.15"
+    - "*global_blocks.16"
+    - "*global_blocks.17"
+    - "*global_blocks.18"
+    - "*global_blocks.19"
+    - "*global_blocks.20"
+    - "*global_blocks.21"
+
+  amp:
+    enabled: True
+    amp_dtype: bfloat16
+
+  gradient_clip:
+    _target_: train_utils.gradient_clip.GradientClipper
+    configs:
+      - module_name: ["aggregator"]
+        max_norm: 1.0
+        norm_type: 2
+      - module_name: ["camera"]
+        max_norm: 1.0
+        norm_type: 2
+
+  options:
+    lr:
+      - scheduler:
+          _target_: fvcore.common.param_scheduler.CosineParamScheduler
+          start_value: 1.0e-4
+          end_value: 1.0e-5
+    weight_decay:
+      - scheduler:
+          _target_: fvcore.common.param_scheduler.ConstantParamScheduler
+          value: 0.01
+
+max_epochs: 20
+
+model:
+  _target_: vggt.models.vggt.VGGT
+  # Load pretrained weights in checkpoint.resume_checkpoint_path instead
+  img_size: ${img_size}
+  patch_size: ${patch_size}
+  embed_dim: 1024 # For VGGT-1B
+  enable_camera: True
+  enable_depth: False
+  enable_point: False
+  enable_track: False
+
+distributed:
+  backend: nccl
+  comms_dtype: None
+  find_unused_parameters: True # Important for frozen modules
+  timeout_mins: 30
+  gradient_as_bucket_view: True
+  bucket_cap_mb: 25
+  broadcast_buffers: True
+
+cuda:
+  cudnn_deterministic: False
+  cudnn_benchmark: True
+  allow_tf32: True

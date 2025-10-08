@@ -1,0 +1,143 @@
+aggregator.camera_token                                      (1, 2, 1, 1024)      2048
+aggregator.register_token                                    (1, 2, 4, 1024)      8192
+aggregator.frame_blocks.22.norm1.weight                      (1024,)              1024
+aggregator.frame_blocks.22.norm1.bias                        (1024,)              1024
+aggregator.frame_blocks.22.attn.qkv.weight                   (3072, 1024)         3145728
+aggregator.frame_blocks.22.attn.qkv.bias                     (3072,)              3072
+aggregator.frame_blocks.22.attn.q_norm.weight                (64,)                64
+aggregator.frame_blocks.22.attn.q_norm.bias                  (64,)                64
+aggregator.frame_blocks.22.attn.k_norm.weight                (64,)                64
+aggregator.frame_blocks.22.attn.k_norm.bias                  (64,)                64
+aggregator.frame_blocks.22.attn.proj.weight                  (1024, 1024)         1048576
+aggregator.frame_blocks.22.attn.proj.bias                    (1024,)              1024
+aggregator.frame_blocks.22.ls1.gamma                         (1024,)              1024
+aggregator.frame_blocks.22.norm2.weight                      (1024,)              1024
+aggregator.frame_blocks.22.norm2.bias                        (1024,)              1024
+aggregator.frame_blocks.22.mlp.fc1.weight                    (4096, 1024)         4194304
+aggregator.frame_blocks.22.mlp.fc1.bias                      (4096,)              4096
+aggregator.frame_blocks.22.mlp.fc2.weight                    (1024, 4096)         4194304
+aggregator.frame_blocks.22.mlp.fc2.bias                      (1024,)              1024
+aggregator.frame_blocks.22.ls2.gamma                         (1024,)              1024
+aggregator.frame_blocks.23.norm1.weight                      (1024,)              1024
+aggregator.frame_blocks.23.norm1.bias                        (1024,)              1024
+aggregator.frame_blocks.23.attn.qkv.weight                   (3072, 1024)         3145728
+aggregator.frame_blocks.23.attn.qkv.bias                     (3072,)              3072
+aggregator.frame_blocks.23.attn.q_norm.weight                (64,)                64
+aggregator.frame_blocks.23.attn.q_norm.bias                  (64,)                64
+aggregator.frame_blocks.23.attn.k_norm.weight                (64,)                64
+aggregator.frame_blocks.23.attn.k_norm.bias                  (64,)                64
+aggregator.frame_blocks.23.attn.proj.weight                  (1024, 1024)         1048576
+aggregator.frame_blocks.23.attn.proj.bias                    (1024,)              1024
+aggregator.frame_blocks.23.ls1.gamma                         (1024,)              1024
+aggregator.frame_blocks.23.norm2.weight                      (1024,)              1024
+aggregator.frame_blocks.23.norm2.bias                        (1024,)              1024
+aggregator.frame_blocks.23.mlp.fc1.weight                    (4096, 1024)         4194304
+aggregator.frame_blocks.23.mlp.fc1.bias                      (4096,)              4096
+aggregator.frame_blocks.23.mlp.fc2.weight                    (1024, 4096)         4194304
+aggregator.frame_blocks.23.mlp.fc2.bias                      (1024,)              1024
+aggregator.frame_blocks.23.ls2.gamma                         (1024,)              1024
+aggregator.global_blocks.22.norm1.weight                     (1024,)              1024
+aggregator.global_blocks.22.norm1.bias                       (1024,)              1024
+aggregator.global_blocks.22.attn.qkv.weight                  (3072, 1024)         3145728
+aggregator.global_blocks.22.attn.qkv.bias                    (3072,)              3072
+aggregator.global_blocks.22.attn.q_norm.weight               (64,)                64
+aggregator.global_blocks.22.attn.q_norm.bias                 (64,)                64
+aggregator.global_blocks.22.attn.k_norm.weight               (64,)                64
+aggregator.global_blocks.22.attn.k_norm.bias                 (64,)                64
+aggregator.global_blocks.22.attn.proj.weight                 (1024, 1024)         1048576
+aggregator.global_blocks.22.attn.proj.bias                   (1024,)              1024
+aggregator.global_blocks.22.ls1.gamma                        (1024,)              1024
+aggregator.global_blocks.22.norm2.weight                     (1024,)              1024
+aggregator.global_blocks.22.norm2.bias                       (1024,)              1024
+aggregator.global_blocks.22.mlp.fc1.weight                   (4096, 1024)         4194304
+aggregator.global_blocks.22.mlp.fc1.bias                     (4096,)              4096
+aggregator.global_blocks.22.mlp.fc2.weight                   (1024, 4096)         4194304
+aggregator.global_blocks.22.mlp.fc2.bias                     (1024,)              1024
+aggregator.global_blocks.22.ls2.gamma                        (1024,)              1024
+aggregator.global_blocks.23.norm1.weight                     (1024,)              1024
+aggregator.global_blocks.23.norm1.bias                       (1024,)              1024
+aggregator.global_blocks.23.attn.qkv.weight                  (3072, 1024)         3145728
+aggregator.global_blocks.23.attn.qkv.bias                    (3072,)              3072
+aggregator.global_blocks.23.attn.q_norm.weight               (64,)                64
+aggregator.global_blocks.23.attn.q_norm.bias                 (64,)                64
+aggregator.global_blocks.23.attn.k_norm.weight               (64,)                64
+aggregator.global_blocks.23.attn.k_norm.bias                 (64,)                64
+aggregator.global_blocks.23.attn.proj.weight                 (1024, 1024)         1048576
+aggregator.global_blocks.23.attn.proj.bias                   (1024,)              1024
+aggregator.global_blocks.23.ls1.gamma                        (1024,)              1024
+aggregator.global_blocks.23.norm2.weight                     (1024,)              1024
+aggregator.global_blocks.23.norm2.bias                       (1024,)              1024
+aggregator.global_blocks.23.mlp.fc1.weight                   (4096, 1024)         4194304
+aggregator.global_blocks.23.mlp.fc1.bias                     (4096,)              4096
+aggregator.global_blocks.23.mlp.fc2.weight                   (1024, 4096)         4194304
+aggregator.global_blocks.23.mlp.fc2.bias                     (1024,)              1024
+aggregator.global_blocks.23.ls2.gamma                        (1024,)              1024
+camera_head.empty_pose_tokens                                (1, 1, 9)            9
+camera_head.trunk.0.norm1.weight                             (2048,)              2048
+camera_head.trunk.0.norm1.bias                               (2048,)              2048
+camera_head.trunk.0.attn.qkv.weight                          (6144, 2048)         12582912
+camera_head.trunk.0.attn.qkv.bias                            (6144,)              6144
+camera_head.trunk.0.attn.proj.weight                         (2048, 2048)         4194304
+camera_head.trunk.0.attn.proj.bias                           (2048,)              2048
+camera_head.trunk.0.ls1.gamma                                (2048,)              2048
+camera_head.trunk.0.norm2.weight                             (2048,)              2048
+camera_head.trunk.0.norm2.bias                               (2048,)              2048
+camera_head.trunk.0.mlp.fc1.weight                           (8192, 2048)         16777216
+camera_head.trunk.0.mlp.fc1.bias                             (8192,)              8192
+camera_head.trunk.0.mlp.fc2.weight                           (2048, 8192)         16777216
+camera_head.trunk.0.mlp.fc2.bias                             (2048,)              2048
+camera_head.trunk.0.ls2.gamma                                (2048,)              2048
+camera_head.trunk.1.norm1.weight                             (2048,)              2048
+camera_head.trunk.1.norm1.bias                               (2048,)              2048
+camera_head.trunk.1.attn.qkv.weight                          (6144, 2048)         12582912
+camera_head.trunk.1.attn.qkv.bias                            (6144,)              6144
+camera_head.trunk.1.attn.proj.weight                         (2048, 2048)         4194304
+camera_head.trunk.1.attn.proj.bias                           (2048,)              2048
+camera_head.trunk.1.ls1.gamma                                (2048,)              2048
+camera_head.trunk.1.norm2.weight                             (2048,)              2048
+camera_head.trunk.1.norm2.bias                               (2048,)              2048
+camera_head.trunk.1.mlp.fc1.weight                           (8192, 2048)         16777216
+camera_head.trunk.1.mlp.fc1.bias                             (8192,)              8192
+camera_head.trunk.1.mlp.fc2.weight                           (2048, 8192)         16777216
+camera_head.trunk.1.mlp.fc2.bias                             (2048,)              2048
+camera_head.trunk.1.ls2.gamma                                (2048,)              2048
+camera_head.trunk.2.norm1.weight                             (2048,)              2048
+camera_head.trunk.2.norm1.bias                               (2048,)              2048
+camera_head.trunk.2.attn.qkv.weight                          (6144, 2048)         12582912
+camera_head.trunk.2.attn.qkv.bias                            (6144,)              6144
+camera_head.trunk.2.attn.proj.weight                         (2048, 2048)         4194304
+camera_head.trunk.2.attn.proj.bias                           (2048,)              2048
+camera_head.trunk.2.ls1.gamma                                (2048,)              2048
+camera_head.trunk.2.norm2.weight                             (2048,)              2048
+camera_head.trunk.2.norm2.bias                               (2048,)              2048
+camera_head.trunk.2.mlp.fc1.weight                           (8192, 2048)         16777216
+camera_head.trunk.2.mlp.fc1.bias                             (8192,)              8192
+camera_head.trunk.2.mlp.fc2.weight                           (2048, 8192)         16777216
+camera_head.trunk.2.mlp.fc2.bias                             (2048,)              2048
+camera_head.trunk.2.ls2.gamma                                (2048,)              2048
+camera_head.trunk.3.norm1.weight                             (2048,)              2048
+camera_head.trunk.3.norm1.bias                               (2048,)              2048
+camera_head.trunk.3.attn.qkv.weight                          (6144, 2048)         12582912
+camera_head.trunk.3.attn.qkv.bias                            (6144,)              6144
+camera_head.trunk.3.attn.proj.weight                         (2048, 2048)         4194304
+camera_head.trunk.3.attn.proj.bias                           (2048,)              2048
+camera_head.trunk.3.ls1.gamma                                (2048,)              2048
+camera_head.trunk.3.norm2.weight                             (2048,)              2048
+camera_head.trunk.3.norm2.bias                               (2048,)              2048
+camera_head.trunk.3.mlp.fc1.weight                           (8192, 2048)         16777216
+camera_head.trunk.3.mlp.fc1.bias                             (8192,)              8192
+camera_head.trunk.3.mlp.fc2.weight                           (2048, 8192)         16777216
+camera_head.trunk.3.mlp.fc2.bias                             (2048,)              2048
+camera_head.trunk.3.ls2.gamma                                (2048,)              2048
+camera_head.token_norm.weight                                (2048,)              2048
+camera_head.token_norm.bias                                  (2048,)              2048
+camera_head.trunk_norm.weight                                (2048,)              2048
+camera_head.trunk_norm.bias                                  (2048,)              2048
+camera_head.embed_pose.weight                                (2048, 9)            18432
+camera_head.embed_pose.bias                                  (2048,)              2048
+camera_head.poseLN_modulation.1.weight                       (6144, 2048)         12582912
+camera_head.poseLN_modulation.1.bias                         (6144,)              6144
+camera_head.pose_branch.fc1.weight                           (1024, 2048)         2097152
+camera_head.pose_branch.fc1.bias                             (1024,)              1024
+camera_head.pose_branch.fc2.weight                           (9, 1024)            9216
+camera_head.pose_branch.fc2.bias                             (9,)                 9

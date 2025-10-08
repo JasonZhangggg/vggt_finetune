@@ -173,12 +173,27 @@ def camera_loss_single(pred_pose_enc, gt_pose_enc, loss_type="l1"):
     if loss_type == "l1":
         # Translation: first 3 dims; Rotation: next 4 (quaternion); Focal/Intrinsics: last dims
         loss_T = (pred_pose_enc[..., :3] - gt_pose_enc[..., :3]).abs()
-        loss_R = (pred_pose_enc[..., 3:7] - gt_pose_enc[..., 3:7]).abs()
+        
+        # loss_R = (pred_pose_enc[..., 3:7] - gt_pose_enc[..., 3:7]).abs()
+        pred_quat = pred_pose_enc[..., 3:7]
+        gt_quat = gt_pose_enc[..., 3:7]
+        
+        loss_R_pos = (pred_quat - gt_quat).abs()
+        loss_R_neg = (pred_quat + gt_quat).abs()
+        loss_R = torch.min(loss_R_pos, loss_R_neg) 
+
         loss_FL = (pred_pose_enc[..., 7:] - gt_pose_enc[..., 7:]).abs()
     elif loss_type == "l2":
         # L2 norm for each component
         loss_T = (pred_pose_enc[..., :3] - gt_pose_enc[..., :3]).norm(dim=-1, keepdim=True)
-        loss_R = (pred_pose_enc[..., 3:7] - gt_pose_enc[..., 3:7]).norm(dim=-1)
+
+        # loss_R = (pred_pose_enc[..., 3:7] - gt_pose_enc[..., 3:7]).norm(dim=-1)
+        pred_quat = pred_pose_enc[..., 3:7]
+        gt_quat = gt_pose_enc[..., 3:7]
+        loss_R_pos = (pred_quat - gt_quat).norm(dim=-1, keepdim=True)
+        loss_R_neg = (pred_quat + gt_quat).norm(dim=-1, keepdim=True)
+        loss_R = torch.min(loss_R_pos, loss_R_neg)
+
         loss_FL = (pred_pose_enc[..., 7:] - gt_pose_enc[..., 7:]).norm(dim=-1)
     else:
         raise ValueError(f"Unknown loss type: {loss_type}")

@@ -1,0 +1,95 @@
+INFO 2025-10-08 03:25:04,627 general.py: 221: GPU SEED: 840
+INFO 2025-10-08 03:25:04,631 trainer.py: 241: Setting up components: Model, Loss, Logger, etc.
+INFO 2025-10-08 03:25:04,820 tb_writer.py:  45: TensorBoard SummaryWriter instantiated. Files will be stored in: logs/tensorboard
+INFO 2025-10-08 03:25:12,623 trainer.py: 254: [Start] Freezing modules: ['*aggregator*'] on rank 0
+INFO 2025-10-08 03:25:12,712 trainer.py: 261: [Done] Freezing modules: ['*aggregator*'] on rank 0
+INFO 2025-10-08 03:25:15,428 trainer.py: 269: Model summary saved to logs/model.txt
+INFO 2025-10-08 03:25:15,428 trainer.py: 271: Successfully initialized training components.
+INFO 2025-10-08 03:25:15,480 co3d.py: 126: CO3D_DIR is /YOUR/PATH/TO/CO3D
+ERROR 2025-10-08 03:25:15,481 co3d.py: 143: Annotation file not found: /YOUR/PATH/TO/CO3D_ANNOTATION/apple_test.jgz
+ERROR 2025-10-08 03:25:15,481 co3d.py: 143: Annotation file not found: /YOUR/PATH/TO/CO3D_ANNOTATION/backpack_test.jgz
+ERROR 2025-10-08 03:25:15,481 co3d.py: 143: Annotation file not found: /YOUR/PATH/TO/CO3D_ANNOTATION/banana_test.jgz
+ERROR 2025-10-08 03:25:15,481 co3d.py: 143: Annotation file not found: /YOUR/PATH/TO/CO3D_ANNOTATION/baseballbat_test.jgz
+ERROR 2025-10-08 03:25:15,481 co3d.py: 143: Annotation file not found: /YOUR/PATH/TO/CO3D_ANNOTATION/baseballglove_test.jgz
+ERROR 2025-10-08 03:25:15,481 co3d.py: 143: Annotation file not found: /YOUR/PATH/TO/CO3D_ANNOTATION/bench_test.jgz
+ERROR 2025-10-08 03:25:15,481 co3d.py: 143: Annotation file not found: /YOUR/PATH/TO/CO3D_ANNOTATION/bicycle_test.jgz
+ERROR 2025-10-08 03:25:15,481 co3d.py: 143: Annotation file not found: /YOUR/PATH/TO/CO3D_ANNOTATION/bottle_test.jgz
+ERROR 2025-10-08 03:25:15,481 co3d.py: 143: Annotation file not found: /YOUR/PATH/TO/CO3D_ANNOTATION/bowl_test.jgz
+ERROR 2025-10-08 03:25:15,481 co3d.py: 143: Annotation file not found: /YOUR/PATH/TO/CO3D_ANNOTATION/broccoli_test.jgz
+ERROR 2025-10-08 03:25:15,481 co3d.py: 143: Annotation file not found: /YOUR/PATH/TO/CO3D_ANNOTATION/cake_test.jgz
+ERROR 2025-10-08 03:25:15,481 co3d.py: 143: Annotation file not found: /YOUR/PATH/TO/CO3D_ANNOTATION/car_test.jgz
+ERROR 2025-10-08 03:25:15,481 co3d.py: 143: Annotation file not found: /YOUR/PATH/TO/CO3D_ANNOTATION/carrot_test.jgz
+ERROR 2025-10-08 03:25:15,481 co3d.py: 143: Annotation file not found: /YOUR/PATH/TO/CO3D_ANNOTATION/cellphone_test.jgz
+ERROR 2025-10-08 03:25:15,481 co3d.py: 143: Annotation file not found: /YOUR/PATH/TO/CO3D_ANNOTATION/chair_test.jgz
+ERROR 2025-10-08 03:25:15,481 co3d.py: 143: Annotation file not found: /YOUR/PATH/TO/CO3D_ANNOTATION/cup_test.jgz
+ERROR 2025-10-08 03:25:15,481 co3d.py: 143: Annotation file not found: /YOUR/PATH/TO/CO3D_ANNOTATION/donut_test.jgz
+ERROR 2025-10-08 03:25:15,481 co3d.py: 143: Annotation file not found: /YOUR/PATH/TO/CO3D_ANNOTATION/hairdryer_test.jgz
+ERROR 2025-10-08 03:25:15,481 co3d.py: 143: Annotation file not found: /YOUR/PATH/TO/CO3D_ANNOTATION/handbag_test.jgz
+ERROR 2025-10-08 03:25:15,481 co3d.py: 143: Annotation file not found: /YOUR/PATH/TO/CO3D_ANNOTATION/hydrant_test.jgz
+ERROR 2025-10-08 03:25:15,481 co3d.py: 143: Annotation file not found: /YOUR/PATH/TO/CO3D_ANNOTATION/keyboard_test.jgz
+ERROR 2025-10-08 03:25:15,481 co3d.py: 143: Annotation file not found: /YOUR/PATH/TO/CO3D_ANNOTATION/laptop_test.jgz
+ERROR 2025-10-08 03:25:15,482 co3d.py: 143: Annotation file not found: /YOUR/PATH/TO/CO3D_ANNOTATION/microwave_test.jgz
+ERROR 2025-10-08 03:25:15,482 co3d.py: 143: Annotation file not found: /YOUR/PATH/TO/CO3D_ANNOTATION/motorcycle_test.jgz
+ERROR 2025-10-08 03:25:15,482 co3d.py: 143: Annotation file not found: /YOUR/PATH/TO/CO3D_ANNOTATION/mouse_test.jgz
+ERROR 2025-10-08 03:25:15,482 co3d.py: 143: Annotation file not found: /YOUR/PATH/TO/CO3D_ANNOTATION/orange_test.jgz
+ERROR 2025-10-08 03:25:15,482 co3d.py: 143: Annotation file not found: /YOUR/PATH/TO/CO3D_ANNOTATION/parkingmeter_test.jgz
+ERROR 2025-10-08 03:25:15,482 co3d.py: 143: Annotation file not found: /YOUR/PATH/TO/CO3D_ANNOTATION/pizza_test.jgz
+ERROR 2025-10-08 03:25:15,482 co3d.py: 143: Annotation file not found: /YOUR/PATH/TO/CO3D_ANNOTATION/plant_test.jgz
+ERROR 2025-10-08 03:25:15,482 co3d.py: 143: Annotation file not found: /YOUR/PATH/TO/CO3D_ANNOTATION/stopsign_test.jgz
+ERROR 2025-10-08 03:25:15,482 co3d.py: 143: Annotation file not found: /YOUR/PATH/TO/CO3D_ANNOTATION/teddybear_test.jgz
+ERROR 2025-10-08 03:25:15,482 co3d.py: 143: Annotation file not found: /YOUR/PATH/TO/CO3D_ANNOTATION/toaster_test.jgz
+ERROR 2025-10-08 03:25:15,482 co3d.py: 143: Annotation file not found: /YOUR/PATH/TO/CO3D_ANNOTATION/toilet_test.jgz
+ERROR 2025-10-08 03:25:15,482 co3d.py: 143: Annotation file not found: /YOUR/PATH/TO/CO3D_ANNOTATION/toybus_test.jgz
+ERROR 2025-10-08 03:25:15,482 co3d.py: 143: Annotation file not found: /YOUR/PATH/TO/CO3D_ANNOTATION/toyplane_test.jgz
+ERROR 2025-10-08 03:25:15,482 co3d.py: 143: Annotation file not found: /YOUR/PATH/TO/CO3D_ANNOTATION/toytrain_test.jgz
+ERROR 2025-10-08 03:25:15,482 co3d.py: 143: Annotation file not found: /YOUR/PATH/TO/CO3D_ANNOTATION/toytruck_test.jgz
+ERROR 2025-10-08 03:25:15,482 co3d.py: 143: Annotation file not found: /YOUR/PATH/TO/CO3D_ANNOTATION/tv_test.jgz
+ERROR 2025-10-08 03:25:15,482 co3d.py: 143: Annotation file not found: /YOUR/PATH/TO/CO3D_ANNOTATION/umbrella_test.jgz
+ERROR 2025-10-08 03:25:15,482 co3d.py: 143: Annotation file not found: /YOUR/PATH/TO/CO3D_ANNOTATION/vase_test.jgz
+ERROR 2025-10-08 03:25:15,482 co3d.py: 143: Annotation file not found: /YOUR/PATH/TO/CO3D_ANNOTATION/wineglass_test.jgz
+INFO 2025-10-08 03:25:15,482 co3d.py: 159: Testing: Co3D Data size: 0
+INFO 2025-10-08 03:25:15,482 co3d.py: 160: Testing: Co3D Data dataset length: 10000
+INFO 2025-10-08 03:25:15,499 co3d.py: 126: CO3D_DIR is /YOUR/PATH/TO/CO3D
+ERROR 2025-10-08 03:25:15,499 co3d.py: 143: Annotation file not found: /YOUR/PATH/TO/CO3D_ANNOTATION/apple_train.jgz
+ERROR 2025-10-08 03:25:15,499 co3d.py: 143: Annotation file not found: /YOUR/PATH/TO/CO3D_ANNOTATION/backpack_train.jgz
+ERROR 2025-10-08 03:25:15,499 co3d.py: 143: Annotation file not found: /YOUR/PATH/TO/CO3D_ANNOTATION/banana_train.jgz
+ERROR 2025-10-08 03:25:15,499 co3d.py: 143: Annotation file not found: /YOUR/PATH/TO/CO3D_ANNOTATION/baseballbat_train.jgz
+ERROR 2025-10-08 03:25:15,499 co3d.py: 143: Annotation file not found: /YOUR/PATH/TO/CO3D_ANNOTATION/baseballglove_train.jgz
+ERROR 2025-10-08 03:25:15,499 co3d.py: 143: Annotation file not found: /YOUR/PATH/TO/CO3D_ANNOTATION/bench_train.jgz
+ERROR 2025-10-08 03:25:15,499 co3d.py: 143: Annotation file not found: /YOUR/PATH/TO/CO3D_ANNOTATION/bicycle_train.jgz
+ERROR 2025-10-08 03:25:15,499 co3d.py: 143: Annotation file not found: /YOUR/PATH/TO/CO3D_ANNOTATION/bottle_train.jgz
+ERROR 2025-10-08 03:25:15,499 co3d.py: 143: Annotation file not found: /YOUR/PATH/TO/CO3D_ANNOTATION/bowl_train.jgz
+ERROR 2025-10-08 03:25:15,499 co3d.py: 143: Annotation file not found: /YOUR/PATH/TO/CO3D_ANNOTATION/broccoli_train.jgz
+ERROR 2025-10-08 03:25:15,499 co3d.py: 143: Annotation file not found: /YOUR/PATH/TO/CO3D_ANNOTATION/cake_train.jgz
+ERROR 2025-10-08 03:25:15,499 co3d.py: 143: Annotation file not found: /YOUR/PATH/TO/CO3D_ANNOTATION/car_train.jgz
+ERROR 2025-10-08 03:25:15,499 co3d.py: 143: Annotation file not found: /YOUR/PATH/TO/CO3D_ANNOTATION/carrot_train.jgz
+ERROR 2025-10-08 03:25:15,499 co3d.py: 143: Annotation file not found: /YOUR/PATH/TO/CO3D_ANNOTATION/cellphone_train.jgz
+ERROR 2025-10-08 03:25:15,499 co3d.py: 143: Annotation file not found: /YOUR/PATH/TO/CO3D_ANNOTATION/chair_train.jgz
+ERROR 2025-10-08 03:25:15,499 co3d.py: 143: Annotation file not found: /YOUR/PATH/TO/CO3D_ANNOTATION/cup_train.jgz
+ERROR 2025-10-08 03:25:15,500 co3d.py: 143: Annotation file not found: /YOUR/PATH/TO/CO3D_ANNOTATION/donut_train.jgz
+ERROR 2025-10-08 03:25:15,500 co3d.py: 143: Annotation file not found: /YOUR/PATH/TO/CO3D_ANNOTATION/hairdryer_train.jgz
+ERROR 2025-10-08 03:25:15,500 co3d.py: 143: Annotation file not found: /YOUR/PATH/TO/CO3D_ANNOTATION/handbag_train.jgz
+ERROR 2025-10-08 03:25:15,500 co3d.py: 143: Annotation file not found: /YOUR/PATH/TO/CO3D_ANNOTATION/hydrant_train.jgz
+ERROR 2025-10-08 03:25:15,500 co3d.py: 143: Annotation file not found: /YOUR/PATH/TO/CO3D_ANNOTATION/keyboard_train.jgz
+ERROR 2025-10-08 03:25:15,500 co3d.py: 143: Annotation file not found: /YOUR/PATH/TO/CO3D_ANNOTATION/laptop_train.jgz
+ERROR 2025-10-08 03:25:15,500 co3d.py: 143: Annotation file not found: /YOUR/PATH/TO/CO3D_ANNOTATION/microwave_train.jgz
+ERROR 2025-10-08 03:25:15,500 co3d.py: 143: Annotation file not found: /YOUR/PATH/TO/CO3D_ANNOTATION/motorcycle_train.jgz
+ERROR 2025-10-08 03:25:15,500 co3d.py: 143: Annotation file not found: /YOUR/PATH/TO/CO3D_ANNOTATION/mouse_train.jgz
+ERROR 2025-10-08 03:25:15,500 co3d.py: 143: Annotation file not found: /YOUR/PATH/TO/CO3D_ANNOTATION/orange_train.jgz
+ERROR 2025-10-08 03:25:15,500 co3d.py: 143: Annotation file not found: /YOUR/PATH/TO/CO3D_ANNOTATION/parkingmeter_train.jgz
+ERROR 2025-10-08 03:25:15,500 co3d.py: 143: Annotation file not found: /YOUR/PATH/TO/CO3D_ANNOTATION/pizza_train.jgz
+ERROR 2025-10-08 03:25:15,500 co3d.py: 143: Annotation file not found: /YOUR/PATH/TO/CO3D_ANNOTATION/plant_train.jgz
+ERROR 2025-10-08 03:25:15,500 co3d.py: 143: Annotation file not found: /YOUR/PATH/TO/CO3D_ANNOTATION/stopsign_train.jgz
+ERROR 2025-10-08 03:25:15,500 co3d.py: 143: Annotation file not found: /YOUR/PATH/TO/CO3D_ANNOTATION/teddybear_train.jgz
+ERROR 2025-10-08 03:25:15,500 co3d.py: 143: Annotation file not found: /YOUR/PATH/TO/CO3D_ANNOTATION/toaster_train.jgz
+ERROR 2025-10-08 03:25:15,500 co3d.py: 143: Annotation file not found: /YOUR/PATH/TO/CO3D_ANNOTATION/toilet_train.jgz
+ERROR 2025-10-08 03:25:15,500 co3d.py: 143: Annotation file not found: /YOUR/PATH/TO/CO3D_ANNOTATION/toybus_train.jgz
+ERROR 2025-10-08 03:25:15,500 co3d.py: 143: Annotation file not found: /YOUR/PATH/TO/CO3D_ANNOTATION/toyplane_train.jgz
+ERROR 2025-10-08 03:25:15,500 co3d.py: 143: Annotation file not found: /YOUR/PATH/TO/CO3D_ANNOTATION/toytrain_train.jgz
+ERROR 2025-10-08 03:25:15,500 co3d.py: 143: Annotation file not found: /YOUR/PATH/TO/CO3D_ANNOTATION/toytruck_train.jgz
+ERROR 2025-10-08 03:25:15,500 co3d.py: 143: Annotation file not found: /YOUR/PATH/TO/CO3D_ANNOTATION/tv_train.jgz
+ERROR 2025-10-08 03:25:15,500 co3d.py: 143: Annotation file not found: /YOUR/PATH/TO/CO3D_ANNOTATION/umbrella_train.jgz
+ERROR 2025-10-08 03:25:15,501 co3d.py: 143: Annotation file not found: /YOUR/PATH/TO/CO3D_ANNOTATION/vase_train.jgz
+ERROR 2025-10-08 03:25:15,501 co3d.py: 143: Annotation file not found: /YOUR/PATH/TO/CO3D_ANNOTATION/wineglass_train.jgz
+INFO 2025-10-08 03:25:15,501 co3d.py: 159: Training: Co3D Data size: 0
+INFO 2025-10-08 03:25:15,501 co3d.py: 160: Training: Co3D Data dataset length: 100000
