@@ -1,20 +1,19 @@
+# Full Fine-tuning VGGT on nuScenes Sparse Dataset
+# Use with: torchrun --nproc_per_node=4 launch.py --config finetune_nuscenes_sparse
+
 defaults:
   - default_dataset.yaml
 
-exp_name: exp001
+exp_name: finetune_nuscenes_sparse
 img_size: 518
-num_workers: 8
+num_workers: 4
 seed_value: 42
-accum_steps: 2 # We did not use gradient accumulation in our training, while if you suffer from OOM, you can try to use it.
+accum_steps: 2
 patch_size: 14
-val_epoch_freq: 5
+val_epoch_freq: 1
 max_img_per_gpu: 48
 
-limit_train_batches: 800
-limit_val_batches: 400
-
 data:
-  # The code for data still looks too complicated. I should refactor this again (do I have time?...)
   train:
     _target_: data.dynamic_dataloader.DynamicTorchDataset
     num_workers: ${num_workers}
@@ -24,13 +23,19 @@ data:
       patch_size: ${patch_size}
       debug: False
       repeat_batch: False
+      img_nums: [6, 6]
+      inside_random: False
+      fix_aspect_ratio: 0.5625
     dataset:
       _target_: data.composed_dataset.ComposedDataset
+      common_config: ${data.train.common_config}
       dataset_configs:
-        - _target_: data.datasets.co3d.Co3dDataset
+        - _target_: data.datasets.nuscenes_sparse.NuScenesDataset
           split: train
-          CO3D_DIR: /YOUR/PATH/TO/CO3D
-          CO3D_ANNOTATION_DIR: /YOUR/PATH/TO/CO3D_ANNOTATION
+          NUSCENES_DIR: /fs/scratch/PAS2099/Jiacheng/data/nuscenes
+          version: v1.0-trainval
+          len_train: 28130
+
   val:
     _target_: data.dynamic_dataloader.DynamicTorchDataset
     num_workers: ${num_workers}
@@ -39,13 +44,18 @@ data:
       img_size: ${img_size}
       patch_size: ${patch_size}
       debug: False
+      img_nums: [6, 6]
+      inside_random: False
+      fix_aspect_ratio: 0.5625
     dataset:
       _target_: data.composed_dataset.ComposedDataset
+      common_config: ${data.val.common_config}
       dataset_configs:
-        - _target_: data.datasets.co3d.Co3dDataset
-          split: test
-          CO3D_DIR: /YOUR/PATH/TO/CO3D
-          CO3D_ANNOTATION_DIR: /YOUR/PATH/TO/CO3D_ANNOTATION
+        - _target_: data.datasets.nuscenes_sparse.NuScenesDataset
+          split: val
+          NUSCENES_DIR: /fs/scratch/PAS2099/Jiacheng/data/nuscenes
+          version: v1.0-trainval
+          len_train: 6019
 
 logging:
   log_dir: logs
@@ -82,7 +92,7 @@ logging:
 checkpoint:
   save_dir: logs/${exp_name}/ckpts
   save_freq: 5
-  resume_checkpoint_path: /YOUR/PATH/TO/CKPT
+  resume_checkpoint_path: /users/PAS2099/jasonzhangggg/vggt/training/pretrained/model.pt
   strict: False
 
 loss:
@@ -111,7 +121,7 @@ optim:
     weight_decay: 0.05
 
   frozen_module_names:
-    - "*aggregator*" # example, freeze the aggregator
+    - "*aggregator*" # freeze aggregator only; fine-tune rest
 
   amp:
     enabled: True
@@ -146,7 +156,7 @@ optim:
           _target_: fvcore.common.param_scheduler.ConstantParamScheduler
           value: 0.05
 
-max_epochs: 20
+max_epochs: 10
 
 model:
   _target_: vggt.models.vggt.VGGT
