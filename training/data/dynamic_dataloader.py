@@ -41,11 +41,8 @@ class DynamicTorchDataset(ABC):
         self.seed = seed
         self.max_img_per_gpu = max_img_per_gpu
 
-        try:
-            self.dataset = instantiate(dataset, common_conf=common_config, _recursive_=False)
-        except TypeError:
-            # Fallback: if a dataset was written to accept 'common_config', try that.
-            self.dataset = instantiate(dataset, common_config=common_config, _recursive_=False)
+        # Instantiate the dataset
+        self.dataset = instantiate(dataset, common_config=common_config, _recursive_=False)
 
         # Extract aspect ratio and image number ranges from the configuration
         self.aspect_ratio_range = common_config.augs.aspects  # e.g., [0.5, 1.0]
